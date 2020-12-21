@@ -1,0 +1,31 @@
+<section class="courses">
+    <div class="row">
+        <div class="col s6 offset-s3">  
+            {{#if error}}
+                <p class="alert">{{error}}</p>
+            {{/if}}
+
+            <h2>Обновление пароля</h2>
+            <p>Введите новый пароль.</p>
+
+            <form action="/auth/password" method="POST">
+                <div class="input-field">
+                <input id="rpassword" name="password" type="password" class="validate" required>
+                <label for="rpassword">Пароль</label>
+                <span class="helper-text" data-error="Введите новый пароль"></span>
+                </div>
+
+                <div class="input-field">
+                <input id="confirm" name="confirm" type="password" class="validate" required>
+                <label for="confirm">Пароль еще раз</label>
+                <span class="helper-text" data-error="Введите новый пароль"></span>
+                </div>
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+                <input type="hidden" name="userId" value="{{userId}}">
+                <input type="hidden" name="token" value="{{token}}">
+
+                <button class="btn btn-primary" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</section>
